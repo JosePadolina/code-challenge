@@ -1,10 +1,14 @@
 const findSum = function(array) {
+  if (!Array.isArray(array)) {
+    throw new Error('Input must be an array of numbers');
+  }
   let sum = 0;
-
   for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] !== 'number') {
+      throw new Error('Array must contain only numbers');
+    }
     sum += array[i];
   }
-
   return sum;
 };
 
@@ -38,6 +42,10 @@ const findFrequency = function(array) {
 };
 
 const isPalindrome = function(str) {
+  if (typeof str !== 'string') {
+    throw new Error('Input must be a string');
+  }
+
   for (let i = 0; i < Math.floor(str.length / 2); i++) {
     if (str[i] !== str[str.length - 1 - i]) {
       return false;
@@ -62,6 +70,10 @@ const largestPair = function(array) {
 };
 
 const removeParenth = function(str) {
+  if (typeof str !== 'string') {
+    throw new Error('');
+  }
+
   let openParenth = -1;
   let closeParenth = -1;
 
@@ -70,11 +82,12 @@ const removeParenth = function(str) {
       openParenth = i;
     } else if (str[i] === ')') {
       closeParenth = i;
+      break;
     }
   }
 
   if (openParenth === -1 || closeParenth === -1) {
-    throw new Error('Input must contain one set of parentheses');
+    throw new Error('');
   }
 
   const stringWithoutParenth = str.slice(0, openParenth) + str.slice(closeParenth + 1);
@@ -83,8 +96,10 @@ const removeParenth = function(str) {
 };
 
 const scoreScrabble = function(str) {
-function scoreScrabble(str) {
-  
+  if (typeof str !== 'string') {
+    throw new Error('Input must be a string');
+  }
+
   const letterPoints = {
     'a': 1, 'e': 1, 'i': 1, 'o': 1, 'u': 1, 'l': 1, 'n': 1, 'r': 1, 's': 1, 't': 1,
     'd': 2, 'g': 2,
@@ -95,10 +110,10 @@ function scoreScrabble(str) {
     'q': 10, 'z': 10
   };
 
+ 
   let score = 0;
   for (let i = 0; i < str.length; i++) {
     const currentLetter = str[i];
-
     if (letterPoints.hasOwnProperty(currentLetter)) {
       score += letterPoints[currentLetter];
     }
