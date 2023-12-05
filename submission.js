@@ -104,6 +104,6 @@ function scoreScrabble(str) {
     }
   }
 
-  return scores;
+  return score;
 
 };
