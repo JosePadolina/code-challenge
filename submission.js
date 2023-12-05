@@ -5,7 +5,7 @@ const findSum = function(array) {
     sum += numbers[i];
   }
 
-  return sum;
+  return sum};
 };
 
 const findFrequency = function(array) {
@@ -46,7 +46,7 @@ const isPalindrome = function(str) {
     }
   }
 
-  return true;
+  return true};
 };
 
 const largestPair = function(array) {
@@ -57,7 +57,7 @@ const largestPair = function(array) {
     maxProduct = Math.max(maxProduct, currentProduct);
   }
 
-  return maxProduct;
+  return maxProduct};
 
 };
 
@@ -76,7 +76,7 @@ const removeParenth = function(str) {
     }
   }
 
-  return stringWithoutParenth;
+  return stringWithoutParenth};
 
 };
 
@@ -99,6 +99,6 @@ const scoreScrabble = function(str) {
     score += letterScore[letter] || 0;
   }
 
-  return score;
+  return score};
 
 };
