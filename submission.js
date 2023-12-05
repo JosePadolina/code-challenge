@@ -1,11 +1,11 @@
 const findSum = function(array) {
   let sum = 0;
 
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
   }
 
-  return sum};
+  return sum;
 };
 
 const findFrequency = function(array) {
@@ -38,51 +38,54 @@ const findFrequency = function(array) {
 };
 
 const isPalindrome = function(str) {
-    const length = str.length;
-
-  for (let i = 0; i < Math.floor(length / 2); i++) {
-    if (str[i] !== str[length - 1 - i]) {
+  for (let i = 0; i < Math.floor(str.length / 2); i++) {
+    if (str[i] !== str[str.length - 1 - i]) {
       return false;
     }
   }
 
-  return true};
+  return true;
 };
 
 const largestPair = function(array) {
-    let maxProduct = arr[0] * arr[1];
+  let largestNumber = array[0] * array[1];
 
-  for (let i = 1; i < arr.length - 1; i++) {
-    const currentProduct = arr[i] * arr[i + 1];
-    maxProduct = Math.max(maxProduct, currentProduct);
+  for (let i = 1; i < array.length - 1; i++) {
+    const currentNumber = array[i] * array[i + 1];
+    if (currentNumber > largestNumber) {
+      largestNumber = currentNumber;
+    }
   }
 
-  return maxProduct};
+  return largestNumber;
 
 };
 
 const removeParenth = function(str) {
-  function removeParenth(str) {
-  let stringWithoutParenth = '';
-  let insideParenth = false;
+  let openParenth = -1;
+  let closeParenth = -1;
 
   for (let i = 0; i < str.length; i++) {
     if (str[i] === '(') {
-      insideParenth = true;
+      openParenth = i;
     } else if (str[i] === ')') {
-      insideParenth = false;
-    } else if (!insideParenth) {
-      stringWithoutParenth += str[i];
+      closeParenth = i;
     }
   }
 
-  return stringWithoutParenth};
+  if (openParenth === -1 || closeParenth === -1) {
+    throw new Error('Input must contain one set of parentheses');
+  }
+
+  const stringWithoutParenth = str.slice(0, openParenth) + str.slice(closeParenth + 1);
+  return stringWithoutParenth;
 
 };
 
 const scoreScrabble = function(str) {
-  function scoreScrabble(word) {
-  const letterScore = {
+function scoreScrabble(str) {
+  
+  const letterPoints = {
     'a': 1, 'e': 1, 'i': 1, 'o': 1, 'u': 1, 'l': 1, 'n': 1, 'r': 1, 's': 1, 't': 1,
     'd': 2, 'g': 2,
     'b': 3, 'c': 3, 'm': 3, 'p': 3,
@@ -93,12 +96,14 @@ const scoreScrabble = function(str) {
   };
 
   let score = 0;
+  for (let i = 0; i < str.length; i++) {
+    const currentLetter = str[i];
 
-  for (let i = 0; i < word.length; i++) {
-    const letter = word[i];
-    score += letterScore[letter] || 0;
+    if (letterPoints.hasOwnProperty(currentLetter)) {
+      score += letterPoints[currentLetter];
+    }
   }
 
-  return score};
+  return score;
 
 };
