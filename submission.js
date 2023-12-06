@@ -31,26 +31,21 @@ const findFrequency = function(array) {
       minFrequency = frequency[item];
     }
   }
-
   return { most: mostFrequent, least: leastFrequent };
 };
 
 const isPalindrome = function(str) {
-
   for (let i = 0; i < str.length; i++) {
     if (str[i] !== str[str.length - 1 - i]) {
       return false;
     }
   }
-
   return true;
 };
 
 const largestPair = function(array) {
     array.sort((a, b) => b - a);
-
     return array[0] + array[1];
-
 };
 
 const removeParenth = function(str) {
@@ -60,15 +55,13 @@ const removeParenth = function(str) {
     if (str[i] === "(") {
       count++;
     } else if (str[i] === ")") {
-      count--;
-     
+      count--;  
     }
     if (count === 0) {
       output += str[i];
     }
   }
   return output;
-
 };
 
 const scoreScrabble = function(str) {
@@ -88,5 +81,4 @@ const scoreScrabble = function(str) {
   }
 
   return score;
-
 };
