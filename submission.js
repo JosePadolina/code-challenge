@@ -7,12 +7,12 @@ return total;
 };
 
 const findFrequency = function(array) {
-    if (arr.length === 0) {
+    if (array.length === 0) {
     return { most: "", least: "" };
   }
 
   const frequency = {};
-  arr.forEach(item => {
+  array.forEach(item => {
     frequency[item] = (frequency[item] || 0) + 1;
   });
 
